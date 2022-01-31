@@ -20,7 +20,7 @@ def sortArr(arr):
         for i in range(len(arr) - 2):
             if formulaDistant(arr[i], arr[i + 1]) > formulaDistant(arr[i], arr[i + 2]):
                 arr[i + 1], arr[i + 2] = arr[i + 2], arr[i + 1]
-
+                swapped = True
     return arr
 
 
