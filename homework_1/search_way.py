@@ -12,24 +12,17 @@ def formulaDistant(point1, point2):
     return sqrt((point2[0] - point1[0]) ** 2 + (point2[1] - point1[1]) ** 2)
 
 
-def bubble_sort(arr):
-    """Функция сортировки пузырьком"""
-    def swap(i, j):
-        """Функция свапа для двух элементов в массиве"""
-        arr[i], arr[j] = arr[j], arr[i]
-
-    n = len(arr)
+def sortArr(arr):
+    """Функция сортировки массива по значению расстояния между точками (от min до max)"""
     swapped = True
-
-    x = -1  # Значения для порядкового уменьшения количества проходов через массив
     while swapped:
         swapped = False
-        x = x + 1
-        for i in range(2, n - x):
-            if arr[i - 1] > arr[i]:
-                swap(i - 1, i)
-                swapped = True
-
+        for i in range(len(arr) - 1):
+            m = formulaDistant(arr[i], arr[i + 1])
+            for j in range(i + 1, len(arr) - 1):
+                if formulaDistant(arr[i], arr[j]) < m:
+                    arr[i], arr[j] = arr[j], arr[i]
+                    swapped = True
     return arr
 
 
@@ -46,5 +39,4 @@ def sortInfo(arr):
 print('\tДобро пожаловать в программу "Вычисления кратчайшего пути для почтальона"')
 print("-" * 81)
 
-
-sortInfo(bubble_sort(createPoints()))
+sortInfo(sortArr(createPoints()))
