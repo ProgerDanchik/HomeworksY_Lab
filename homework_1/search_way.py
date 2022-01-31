@@ -17,12 +17,10 @@ def sortArr(arr):
     swapped = True
     while swapped:
         swapped = False
-        for i in range(len(arr) - 1):
-            m = formulaDistant(arr[i], arr[i + 1])
-            for j in range(i + 1, len(arr) - 1):
-                if formulaDistant(arr[i], arr[j]) < m:
-                    arr[i], arr[j] = arr[j], arr[i]
-                    swapped = True
+        for i in range(len(arr) - 2):
+            if formulaDistant(arr[i], arr[i + 1]) > formulaDistant(arr[i], arr[i + 2]):
+                arr[i + 1], arr[i + 2] = arr[i + 2], arr[i + 1]
+
     return arr
 
 
