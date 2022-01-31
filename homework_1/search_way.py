@@ -2,16 +2,9 @@ from math import sqrt  # Импорт функции для нахождения
 
 
 def createPoints():
-    """Функция для создания массива точек (x, y)"""
-    mass = []
-    while True:
-        # Проверка исключений для корректной работы цикла заполнения
-        try:
-            x, y = map(int, input().split())  # Ввод значений для кортежа через map
-        except ValueError:
-            return mass
-        else:
-            mass.append((int(x), int(y)))
+    """Функция для создания массива"""
+    mass = [(0, 2), (2, 5), (5, 2), (6, 6), (8, 3)]
+    return mass
 
 
 def formulaDistant(point1, point2):
@@ -53,7 +46,5 @@ def sortInfo(arr):
 print('\tДобро пожаловать в программу "Вычисления кратчайшего пути для почтальона"')
 print("-" * 81)
 
-print("\nДля начала введите значения точек\nКак только закончите вводить значения, напишите в консоле end")
-print("Пример ввода координат:\n5 1")
 
 sortInfo(bubble_sort(createPoints()))
